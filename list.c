@@ -4,9 +4,11 @@
 #include <error.h>
 #include <locale.h>
 #include <time.h>
+#include <stdio_ext.h>
 
 struct msg {
         char *m;
+        struct msg *prtprox;
         };
 
 struct msg *ptrprim, *ptrnovo, *ptratual;
@@ -16,22 +18,17 @@ void lista();
 
 int main()
 {
+        char c;
         ptrprim = (struct msg *) NULL;
         
-        if(ptrnovo = (struct msg *) malloc(sizeof(struct msg *)) == NULL) {
-                perror("ptrnovo [MALLOC]");
-                exit(EXIT_FAILURE);
-                }
-
-        if(ptrprim == NULL)
-                ptrprim = ptratual = ptrnovo;
- 
         while(1) {
                 puts("Pesquisa Com Lista Ligada");
                 puts("");
                 printf("n - Novo No\nl - Lista Nos:");
+                __fpurge(stdin);
+                scanf("%c",&c);
 
-                switch(getchar()) {
+                switch(c) {
         
                 case 'n': 
                         novo();
@@ -41,7 +38,6 @@ int main()
                         break;
                 default: printf("\nOpcao incorreta\n");
                 }        
-                sleep(5);
         }
         exit(EXIT_SUCCESS);
 }
