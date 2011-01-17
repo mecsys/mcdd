@@ -7,8 +7,8 @@
 #include <stdio_ext.h>
 
 struct msg {
-        char *m;
-        struct msg *prtprox;
+        char m[80];
+        struct msg *ptrprox;
         };
 
 struct msg *ptrprim, *ptrnovo, *ptratual;
@@ -24,7 +24,7 @@ int main()
         while(1) {
                 puts("Pesquisa Com Lista Ligada");
                 puts("");
-                printf("n - Novo No\nl - Lista Nos:");
+                printf("n - Novo No\nl - Lista Nos\ne - Exit: ");
                 __fpurge(stdin);
                 scanf("%c",&c);
 
@@ -36,6 +36,8 @@ int main()
                 case 'l': 
                         lista();
                         break;
+                case 'e':
+                        exit(EXIT_SUCCESS);
                 default: printf("\nOpcao incorreta\n");
                 }        
         }
@@ -48,6 +50,17 @@ void novo()
 }
 
 void lista()
-{
-        printf("\nLISTA\n");       
+{       int count = 0;
+        if(ptrprim == (struct msg *) NULL)
+                printf("\nLinsta vazia!");
+
+        ptratual = ptrprim;
+
+        do {
+                puts("==============================");
+                printf("\nNo nr %d",++count);
+                printf("\n%s\n",ptratual -> m);
+                puts("==============================");
+                ptratual = ptratual -> ptrprox;
+        } while(ptratual);             
 }
