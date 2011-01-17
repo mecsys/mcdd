@@ -24,7 +24,7 @@ int main()
         while(1) {
                 puts("Pesquisa Com Lista Ligada");
                 puts("");
-                printf("n - Novo No\nl - Lista Nos\ne - Exit: ");
+                printf("n - Novo No\nl - Lista Nos\ne - Exit\n: ");
                 __fpurge(stdin);
                 scanf("%c",&c);
 
@@ -51,8 +51,10 @@ void novo()
 
 void lista()
 {       int count = 0;
-        if(ptrprim == (struct msg *) NULL)
-                printf("\nLinsta vazia!");
+        if(ptrprim == (struct msg *) NULL) {
+                printf("\nLinsta vazia!\n\n");
+                return;
+        }
 
         ptratual = ptrprim;
 
