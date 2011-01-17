@@ -21,7 +21,7 @@ int main()
         ptrprim = (struct msg *) NULL;
         
         while(1) {
-                puts("Pesquisa Com Lista Ligada");
+                puts("\nPesquisa Com Lista Ligada");
                 puts("");
                 printf("n - Novo No\nl - Lista Nos\ne - Exit\n: ");
                 __fpurge(stdin);
@@ -45,6 +45,7 @@ int main()
 
 void novo()
 {
+        system("clear");
         if(!(ptrnovo = (struct msg *) malloc(sizeof(struct msg *)))) {
                 perror("ptrnovo = [MALLOC]");
                 exit(EXIT_FAILURE);
@@ -60,7 +61,7 @@ void novo()
         }
 
         __fpurge(stdin);
-        puts("\nEscreva no No: ");
+        printf("\nEscreva no No: ");
         fgets(ptratual -> m, 80, stdin);
 
         ptratual -> ptrprox = (struct msg *) NULL;
@@ -82,5 +83,5 @@ void lista()
                 printf("\nConteudo: %s\n",ptratual -> m);
                 puts("==============================");
                 ptratual = ptratual -> ptrprox;
-        } while(ptratual);             
+        } while(ptratual != (struct msg *) NULL);             
 }
