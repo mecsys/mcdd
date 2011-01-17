@@ -59,6 +59,7 @@ void novo()
                 ptratual = ptratual -> ptrprox;
         }
 
+        __fpurge(stdin);
         puts("\nEscreva no No: ");
         getchar();
         fgets(ptratual -> m, 80, stdin);
