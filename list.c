@@ -4,7 +4,6 @@
 #include <error.h>
 #include <locale.h>
 #include <time.h>
-#include <stdio_ext.h>
 
 struct msg {
         char m[80];
@@ -46,22 +45,41 @@ int main()
 
 void novo()
 {
-        printf("\nNOVO\n");       
+        if(!(ptrnovo = (struct msg *) malloc(sizeof(struct msg *)))) {
+                perror("ptrnovo = [MALLOC]");
+                exit(EXIT_FAILURE);
+        }
+
+        if(ptrprim == (struct msg *) NULL)
+                ptrprim = ptratual = ptrnovo;
+        else {
+                while(ptratual -> ptrprox != (struct msg *) NULL)
+                        ptratual = ptratual -> ptrprox;
+                ptratual -> ptrprox = ptrnovo;
+                ptratual = ptratual -> ptrprox;
+        }
+
+        puts("\nEscreva no No: ");
+        getchar();
+        fgets(ptratual -> m, 80, stdin);
+
+        ptratual -> ptrprox = (struct msg *) NULL;
 }
 
 void lista()
-{       int count = 0;
+{       
+        int count = 0;
+        system("clear");
         if(ptrprim == (struct msg *) NULL) {
-                printf("\nLinsta vazia!\n\n");
+                printf("\nLista vazia!\n\n");
                 return;
         }
 
         ptratual = ptrprim;
-
         do {
                 puts("==============================");
                 printf("\nNo nr %d",++count);
-                printf("\n%s\n",ptratual -> m);
+                printf("\nConteudo: %s\n",ptratual -> m);
                 puts("==============================");
                 ptratual = ptratual -> ptrprox;
         } while(ptratual);             
