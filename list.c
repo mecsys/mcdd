@@ -4,9 +4,10 @@
 #include <error.h>
 #include <locale.h>
 #include <time.h>
+#include <string.h>
 
 struct msg {
-        char m[80];
+        char *m;
         struct msg *ptrprox;
         };
 
@@ -21,8 +22,7 @@ int main()
         ptrprim = (struct msg *) NULL;
         
         while(1) {
-                puts("\nPesquisa Com Lista Ligada");
-                puts("");
+                printf("\nPesquisa Com Lista Ligada\n\n");
                 printf("n - Novo No\nl - Lista Nos\ne - Exit\n: ");
                 __fpurge(stdin);
                 scanf("%c",&c);
@@ -51,9 +51,15 @@ void novo()
                 exit(EXIT_FAILURE);
         }
 
+        if(!(ptrnovo->m = (char *) malloc(81 * sizeof(char)))) {
+                perror("ptrnovo->m = [MALLOC]");
+                exit(EXIT_FAILURE);
+        }                
+
         if(ptrprim == (struct msg *) NULL)
                 ptrprim = ptratual = ptrnovo;
         else {
+                ptratual = ptrprim;
                 while(ptratual -> ptrprox != (struct msg *) NULL)
                         ptratual = ptratual -> ptrprox;
                 ptratual -> ptrprox = ptrnovo;
@@ -70,7 +76,6 @@ void novo()
 void lista()
 {       
         int count = 0;
-        system("clear");
         if(ptrprim == (struct msg *) NULL) {
                 printf("\nLista vazia!\n\n");
                 return;
@@ -78,10 +83,11 @@ void lista()
 
         ptratual = ptrprim;
         do {
-                puts("==============================");
-                printf("\nNo nr %d",++count);
-                printf("\nConteudo: %s\n",ptratual -> m);
-                puts("==============================");
+                printf("==============================");
+                printf("\nNo nr: %d",++count);
+                printf("\nstrlen(ptratual -> m) = %d",strlen(ptratual->m));
+                printf("\nConteudo: %s",ptratual -> m);
+                printf("==============================\n\n");
                 ptratual = ptratual -> ptrprox;
         } while(ptratual != (struct msg *) NULL);             
 }
