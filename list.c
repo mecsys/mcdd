@@ -23,6 +23,7 @@ int main()
         
         while(1) {
                 printf("\nPesquisa Com Lista Ligada\n\n");
+                printf("struct msg = %d\n",sizeof(struct msg));
                 printf("n - Novo No\nl - Lista Nos\ne - Exit\n: ");
                 __fpurge(stdin);
                 scanf("%c",&c);
@@ -63,7 +64,7 @@ void novo()
                 while(ptratual -> ptrprox != (struct msg *) NULL)
                         ptratual = ptratual -> ptrprox;
                 ptratual -> ptrprox = ptrnovo;
-                ptratual = ptratual -> ptrprox;
+                ptratual = ptrnovo;
         }
 
         __fpurge(stdin);

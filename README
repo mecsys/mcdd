@@ -1,0 +1,34 @@
+Contem descricao dos arquivos no repositorio WPKG.
+
+Descricao de arquivos e diretorios:
+
+README		- este arquivo
+COPYING		- licenca GPLv2
+
+Dependencias:
+
+Principai dependencias para compilar estes exercicios sao,
+
+libdbx.x - Bibliotecas Berkeley DB (dev,binario)
+ncurses - Bibliotecas para controle de terminal (dev,binario)
+
+
+Cada diretorio com o mesmo nome de arquivos de configuracao, aplica
+configuracoes separadas ou exclusivas.
+
+All programs or files are copyright (C) 2010-11 Isaac Mechi
+(IsaacMechi@Gmail.COM) and released under the following terms:
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.

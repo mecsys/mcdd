@@ -1,8 +1,0 @@
-mcdcli
-mcdcli.o
-mcddb.o
-mcdui
-mcdui.o
-mcdscr.o mcdutil.o
-list
-*nfs*
