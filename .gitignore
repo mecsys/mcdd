@@ -6,3 +6,9 @@ mcdui.o
 mcdscr.o mcdutil.o
 list
 *nfs*
+*hellokernel.m*
+hellokernel.o
+hellokernel.ko
+.hellokernel.*
+module*
+Modu*
